@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toe</title>
+    <style>
+        
+        #board{
+          margin-top: 15vh;  
+          margin-left: 33%;
+          width: 33%;
+          
+          display:inline-block;
+        }
+        button{
+            height: 20vh;
+        color: rgb(255, 255, 255);
+        width:31%;
+ 
+          background-color: white;
+          font-size: 3em;
+            text-align: center;
+        }
+       .row{
+        margin-left: 10px;
+        margin-top: 1px;
+       }
+    </style>
+</head>
+<body>
+  <div id="board">
+    <div class="row"style='margin-top: 0px;'>
+        <button id="option-1" onclick="hi(1)" >&</button>
+        <button id="option-2" onclick="hi(2)">&</button>
+        <button id="option-3" onclick="hi(3)">&</button>
+       </div>
+       <div class="row">
+        <button id="option-4" onclick="hi(4)">&</button>
+        <button id="option-5" onclick="hi(5)">&</button>
+        <button id="option-6" onclick="hi(6)">&</button>
+       </div>
+       <div class="row">
+        <button id="option-7" onclick="hi(7)">&</button>
+        <button id="option-8" onclick="hi(8)">&</button>
+        <button id="option-9" onclick="hi(9)">&</button>
+       </div>
+  </div>
+  <script>
+    o=["x","o"]
+    state=[0,0,0,0,0,0,0,0,0];
+    i=0;
+  function hi(y){
+    id="option-"+y;
+    
+   
+    if(document.getElementById(id).innerHTML== "&amp;"){document.getElementById(id).innerHTML=o[i%2];
+    if (i%2==0) {
+  document.getElementById(id).style="color:blue";
+  state[y-1]--;
+ } 
+ else{ document.getElementById(id).style="color:red";
+ state[y-1]++;
+ }
+  i++;
+   checkwinner(state);
+}}
+    function checkwinner(state){
+      possible=[
+     [0,1,2],
+     [3,4,5],
+     [6,7,8],
+[0,3,6],
+[1,4,7],
+[2,5,8],
+[0,4,8],
+[2,4,6]
+      
+    ];
+    possible.forEach(e => {
+     
+    
+      if(state[e[0]]==state[e[2]]&&state[e[1]]==state[e[0]
+    ]){
+    if ((state[e[0]]+state[e[1]]+state[e[2]])!=0) {
+      alert('winner');
+      
+    }
+      
+    }
+  });
+    
+
+    }
+  </script>
+</body>
+</html>
